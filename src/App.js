@@ -35,8 +35,6 @@ function App() {
           setMarkers(info.data)
         })
     }, 1000);
-
-    console.log(mbtaKey)
   }, [])
 
   return isLoaded ? (
@@ -57,8 +55,14 @@ function App() {
                 lng: marker.attributes.longitude
               }
             }
-            onClick={() => {
-              setSelected(marker);
+            onClick={(event) => {
+              setSelected(current => {
+                <div>
+                  lat: marker.attributes.latitude,
+                  lng: marker.attributes.longitude
+                </div>
+
+              });
             }}
           />
         ))}
